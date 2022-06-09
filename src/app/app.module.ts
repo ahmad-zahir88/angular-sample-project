@@ -11,9 +11,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { CdkColumnDef } from '@angular/cdk/table'
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { DetailPageComponent } from './detail-page/detail-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DetailPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
