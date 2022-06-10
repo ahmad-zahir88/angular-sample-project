@@ -14,7 +14,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DetailPageComponent } from './detail-page/detail-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MatCardModule } from '@angular/material/card';
-import { PersonDetailFormComponent } from './person-detail-form/person-detail-form.component';
+import { UserDetailFormComponent } from './user-detail-form/user-detail-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GenderPipe } from './gender.pipe';
 @NgModule({
@@ -22,7 +22,7 @@ import { GenderPipe } from './gender.pipe';
     AppComponent,
     DetailPageComponent,
     HomePageComponent,
-    PersonDetailFormComponent,
+    UserDetailFormComponent,
     GenderPipe,
   ],
   imports: [
