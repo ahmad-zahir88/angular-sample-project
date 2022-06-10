@@ -16,12 +16,14 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MatCardModule } from '@angular/material/card';
 import { PersonDetailFormComponent } from './person-detail-form/person-detail-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { GenderPipe } from './gender.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     DetailPageComponent,
     HomePageComponent,
     PersonDetailFormComponent,
+    GenderPipe,
   ],
   imports: [
     BrowserModule,

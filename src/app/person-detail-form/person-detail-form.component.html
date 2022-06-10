@@ -34,7 +34,7 @@
     <input *ngIf="edit; else dobValue" type="date" name="dob" formControlName="dob">
     <ng-template #dobValue>
       <span class="detail-val">
-        {{ person.dob }}
+        {{ person.dob | date }}
       </span>
     </ng-template>
   </div>
@@ -55,7 +55,7 @@
   <!-- Occupation -->
   <div class="detail">
     <label for="occupation" class="detail-name mat-body-2">
-      Occuptaion
+      Occupation
     </label>
     <input *ngIf="edit; else occupationValue" type="text" name="occupation" formControlName="occupation">
     <ng-template #occupationValue>
@@ -77,7 +77,7 @@
     </select>
     <ng-template #genderValue>
       <span class="detail-val">
-        {{ person.gender }}
+        {{ person.gender | gender }}
       </span>
     </ng-template>
   </div>

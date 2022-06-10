@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserDataService } from '../user-data.service';
 
 @Component({
   selector: 'app-home-page',
@@ -8,34 +9,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userDataService : UserDataService) { }
 
   ngOnInit() {
   }
 
-  test_data = [
-    {
-      fullName : 'Ahmad A',
-      email: 'ahmada@gmail.com', // Should check validity later
-      dob: '01-09-2000', // Change to DateTime later
-      address: 'A021 B&G Hall, Acton 2601',
-      gender: 'Male', // Make as selection later
-      occupation: 'Student',
-      id: 0
-    },
-    {
-      fullName : 'Ahmad Zahir',
-      email: 'ahmadzahir88@gmail.com', // Should check validity later
-      dob: '02-09-2000', // Change to DateTime later
-      address: 'A034 B&G Hall, Acton 2601',
-      gender: 'Male', // Make as selection later
-      occupation: 'Student',
-      id: 2
-    },
-  ]
   displayedColumns = ['fullName','email','occupation']
 
   onRowClick(id: number){
     this.router.navigate(['detail/'+id])
   }
+
+  test_data = this.userDataService.getUsers();
 }
