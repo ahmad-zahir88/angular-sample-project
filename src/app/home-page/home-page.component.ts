@@ -32,6 +32,6 @@ export class HomePageComponent implements OnInit {
       id: 2
     },
   ]
-  displayedColumns = ['fullName','email','dob','gender','address','occupation','detail']
+  displayedColumns = ['fullName','email','occupation']
 
 }
