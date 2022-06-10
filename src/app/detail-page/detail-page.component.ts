@@ -17,7 +17,7 @@ export class DetailPageComponent implements OnInit {
     })
   }
   id: number;
-  edit: boolean;
+  edit: boolean = false;
 
   onEdit(){
     this.edit = true

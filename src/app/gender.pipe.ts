@@ -7,10 +7,10 @@ import { Gender } from './user';
 export class GenderPipe implements PipeTransform {
 
   transform(value: Gender): String {
-    if (value === Gender.MALE){
+    if (value == Gender.MALE){
       return "Male"
     }
-    else if (value === Gender.FEMALE){
+    else if (value == Gender.FEMALE){
       return "Female"
     }
     else{

@@ -1,17 +1,20 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button (click)="onBackClick()">
-    <mat-icon>keyboard_arrow_left</mat-icon>
-  </button>
-  <span style="padding:0.5rem;">Details</span>
+<mat-toolbar color="primary" style="display: flex; justify-content:space-between;">
+  <div class="left" style="display: flex; justify-content: center; align-items: center;">
+    <button mat-icon-button (click)="onBackClick()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <span style="padding:0.5rem;">Details</span>
+  </div>
+  <div class="right">
+    <button 
+    *ngIf="!edit"
+    mat-flat-button
+    color="primary"
+    matTooltip="Edit details"
+    (click)="onEdit()"> 
+        <mat-icon>edit</mat-icon> 
+    </button>
+  </div>
 </mat-toolbar>
 
 <user-detail-form [edit]="edit" [id]="id" (cancelEdit)="onCancel($event)"></user-detail-form>
-<button 
- *ngIf="!edit"
- mat-fab 
- color="primary" 
- style="margin: 2rem; z-index: 999; position: absolute; bottom: 0; right: 0;"
- matTooltip="Edit details"
- (click)="onEdit()"> 
-    <mat-icon>edit</mat-icon> 
-</button>

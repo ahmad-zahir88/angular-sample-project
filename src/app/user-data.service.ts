@@ -37,4 +37,16 @@ export class UserDataService {
   getUserById(id : Number) : User {
     return this.TEST_DATA.find(user => user.id === id);
   }
+
+  setOrCreateUser(user : User){
+    let existingUser = this.getUserById(user.id);
+    if (existingUser){
+      console.log("Existing user")
+      this.TEST_DATA[this.TEST_DATA.indexOf(existingUser)] = user;
+    }
+    else{
+      console.log("New user")
+      this.TEST_DATA.push(user);
+    }
+  }
 }

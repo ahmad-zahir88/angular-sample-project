@@ -17,6 +17,11 @@ import { MatCardModule } from '@angular/material/card';
 import { UserDetailFormComponent } from './user-detail-form/user-detail-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GenderPipe } from './gender.pipe';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule} from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,10 +40,18 @@ import { GenderPipe } from './gender.pipe';
     MatIconModule,
     MatTooltipModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [
-    CdkColumnDef
+    CdkColumnDef,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    GenderPipe
   ],
   bootstrap: [AppComponent]
 })

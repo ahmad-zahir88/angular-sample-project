@@ -6,7 +6,17 @@
     width: 80%;
 }
 
-.detail{
+.detail-edit-false{
     display: flex;
-    margin: 1.5rem 0.25rem;
+    margin: 0 0.25rem 1.25rem 0.25rem;
+}
+
+.detail-edit-true{
+    display: flex;
+    margin: 0 0.25rem 0 0.25rem;
+}
+
+::ng-deep .mat-form-field-infix{
+    border-top-width: 0;
+    padding-top: 0!important;
 }
