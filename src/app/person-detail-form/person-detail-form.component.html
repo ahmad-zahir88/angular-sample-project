@@ -52,6 +52,19 @@
     </ng-template>
   </div>
 
+  <!-- Occupation -->
+  <div class="detail">
+    <label for="occupation" class="detail-name mat-body-2">
+      Occuptaion
+    </label>
+    <input *ngIf="edit; else occupationValue" type="text" name="occupation" formControlName="occupation">
+    <ng-template #occupationValue>
+      <span class="detail-val">
+        {{ person.occupation }}
+      </span>
+    </ng-template>
+  </div>
+
   <!-- Address -->
   <div class="detail">
     <label for="gender" class="detail-name mat-body-2">
