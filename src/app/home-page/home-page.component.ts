@@ -11,7 +11,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   test_data = [
     {
       fullName : 'Ahmad A',
@@ -20,7 +20,7 @@ export class HomePageComponent implements OnInit {
       address: 'A021 B&G Hall, Acton 2601',
       gender: 'Male', // Make as selection later
       occupation: 'Student',
-      id: '00'
+      id: 0
     },
     {
       fullName : 'Ahmad Zahir',
@@ -29,7 +29,7 @@ export class HomePageComponent implements OnInit {
       address: 'A034 B&G Hall, Acton 2601',
       gender: 'Male', // Make as selection later
       occupation: 'Student',
-      id: '002'
+      id: 2
     },
   ]
   displayedColumns = ['fullName','email','dob','gender','address','occupation','detail']
