@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,7 @@ export class PersonDetailFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.personDetailsForm = new FormGroup({
+    this.personDetailForm = new FormGroup({
       fullName: new FormControl(''),
       email: new FormControl(''),
       dob: new FormControl(''),
@@ -23,6 +23,7 @@ export class PersonDetailFormComponent implements OnInit {
   }
   
   @Input() edit : boolean = false;
+  @Output() cancelEdit = new EventEmitter<boolean>();
   @Input() id : number;
   person : any;
   test_data = [
@@ -55,5 +56,9 @@ export class PersonDetailFormComponent implements OnInit {
     {occupation: 'Occupation'}
   ]
 
-  personDetailsForm : FormGroup;
+  personDetailForm : FormGroup;
+
+  onCancel(){
+    this.cancelEdit.emit(true);
+  }
 }

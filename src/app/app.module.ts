@@ -21,7 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     DetailPageComponent,
     HomePageComponent,
-    PersonDetailFormComponent
+    PersonDetailFormComponent,
   ],
   imports: [
     BrowserModule,

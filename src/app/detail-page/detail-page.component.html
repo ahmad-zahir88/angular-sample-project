@@ -5,11 +5,13 @@
   <span style="padding:0.5rem;">Details</span>
 </mat-toolbar>
 
-<person-detail-form [edit]="edit" [id]="id"></person-detail-form>
+<person-detail-form [edit]="edit" [id]="id" (cancelEdit)="onCancel($event)"></person-detail-form>
 <button 
+ *ngIf="!edit"
  mat-fab 
  color="primary" 
  style="margin: 2rem; z-index: 999; position: absolute; bottom: 0; right: 0;"
- matTooltip="Edit details"> 
+ matTooltip="Edit details"
+ (click)="onEdit()"> 
     <mat-icon>edit</mat-icon> 
 </button>

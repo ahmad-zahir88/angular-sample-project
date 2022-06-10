@@ -1,10 +1,11 @@
 <mat-card style="margin: 0.5rem 2rem;">
+  <form [formGroup]="personDetailForm">
   <div *ngFor="let colDict of columns" class="detail">
     <ng-container *ngFor="let col of colDict | keyvalue">
-      <label for="col.key" class="detail-name mat-body-2">
+      <label for="{{col.key}}" class="detail-name mat-body-2">
         {{ col.value }}
       </label>
-      <input *ngIf="edit;else detailValue" type="text" id="col.key" [formControl]="col.key">
+      <input *ngIf="edit;else detailValue" type="text" id="{{col.key}}" formControlName="{{col.key}}">
       <ng-template #detailValue>
         <span class="detail-val">
           {{ person[col.key] }}
@@ -12,4 +13,9 @@
       </ng-template>
     </ng-container>
   </div>
+  <div *ngIf="edit" style="position: absolute; right:2rem; bottom:0.5rem">
+    <button mat-raised-button color="primary" style="margin-right: 0.25rem;" type="submit"><mat-icon>save</mat-icon> Save</button>
+    <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
+  </div>
+  </form>
 </mat-card>
