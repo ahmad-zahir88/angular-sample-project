@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" style="display: flex; justify-content:space-between;">
+  <div class="left" style="display: flex; justify-content: center; align-items: center;">
+    <button mat-icon-button (click)="onBackClick()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <span>Create New User</span>
+  </div>
+</mat-toolbar>
+
+<user-detail-form [edit]="edit" [id]="0" (submitSuccess)="onSubmission($event)"></user-detail-form>

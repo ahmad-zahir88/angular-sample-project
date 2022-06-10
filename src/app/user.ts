@@ -5,7 +5,7 @@ export class User{
     address: String
     gender: Gender
     occupation: String
-    id: Number
+    id?: Number
 }
 
 export enum Gender{

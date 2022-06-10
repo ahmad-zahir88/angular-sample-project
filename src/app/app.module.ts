@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule} from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
+import { CreateUserPageComponent } from './create-user-page/create-user-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { MatSelectModule } from '@angular/material/select';
     HomePageComponent,
     UserDetailFormComponent,
     GenderPipe,
+    CreateUserPageComponent
   ],
   imports: [
     BrowserModule,

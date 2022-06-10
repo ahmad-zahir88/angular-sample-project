@@ -21,4 +21,8 @@ export class HomePageComponent implements OnInit {
   }
 
   test_data = this.userDataService.getUsers();
+
+  onCreate(){
+    this.router.navigate(['create'])
+  }
 }
