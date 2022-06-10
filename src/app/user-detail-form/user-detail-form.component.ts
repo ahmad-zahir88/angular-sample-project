@@ -3,16 +3,16 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { UserDataService } from '../user-data.service';
 
 @Component({
-  selector: 'person-detail-form',
-  templateUrl: './person-detail-form.component.html',
-  styleUrls: ['./person-detail-form.component.css']
+  selector: 'user-detail-form',
+  templateUrl: './user-detail-form.component.html',
+  styleUrls: ['./user-detail-form.component.css']
 })
-export class PersonDetailFormComponent implements OnInit {
+export class UserDetailFormComponent implements OnInit {
 
   constructor(private userDataService : UserDataService) { }
 
   ngOnInit() {
-    this.personDetailForm = new FormGroup({
+    this.userDetailForm = new FormGroup({
       fullName: new FormControl(''),
       email: new FormControl(''),
       dob: new FormControl(''),
@@ -20,13 +20,13 @@ export class PersonDetailFormComponent implements OnInit {
       gender: new FormControl(''),
       occupation: new FormControl(''),
     })
-    this.person = this.userDataService.getUserById(this.id);
+    this.user = this.userDataService.getUserById(this.id);
   }
   
   @Input() edit : boolean = false;
   @Output() cancelEdit = new EventEmitter<boolean>();
   @Input() id : number;
-  person : any;
+  user : any;
 
   columns = [
     {fullName : 'Name'},
@@ -37,7 +37,7 @@ export class PersonDetailFormComponent implements OnInit {
     {occupation: 'Occupation'}
   ]
 
-  personDetailForm : FormGroup;
+  userDetailForm : FormGroup;
 
   onCancel(){
     this.cancelEdit.emit(true);

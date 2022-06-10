@@ -5,7 +5,7 @@
   <span style="padding:0.5rem;">Details</span>
 </mat-toolbar>
 
-<person-detail-form [edit]="edit" [id]="id" (cancelEdit)="onCancel($event)"></person-detail-form>
+<user-detail-form [edit]="edit" [id]="id" (cancelEdit)="onCancel($event)"></user-detail-form>
 <button 
  *ngIf="!edit"
  mat-fab 
