@@ -1,19 +1,75 @@
 <mat-card style="margin: 0.5rem 2rem;">
   <form [formGroup]="personDetailForm">
-  <div *ngFor="let colDict of columns" class="detail">
-    <ng-container *ngFor="let col of colDict | keyvalue">
-      <label for="{{col.key}}" class="detail-name mat-body-2">
-        {{ col.value }}
-      </label>
-      <input *ngIf="edit;else detailValue" type="text" id="{{col.key}}" formControlName="{{col.key}}">
-      <ng-template #detailValue>
-        <span class="detail-val">
-          {{ person[col.key] }}
-        </span>
-      </ng-template>
-    </ng-container>
+  <!-- Full Name -->
+  <div class="detail">
+    <label for="fullName" class="detail-name mat-body-2">
+      Name
+    </label>
+    <input *ngIf="edit;else fullNameValue" type="text" name="fullName" formControlName="fullName">
+    <ng-template #fullNameValue>
+      <span class="detail-val">
+        {{ person.fullName }}
+      </span>
+    </ng-template>
   </div>
-  <div *ngIf="edit" style="position: absolute; right:2rem; bottom:0.5rem">
+
+  <!-- Email -->
+  <div class="detail">
+    <label for="email" class="detail-name mat-body-2">
+      Email
+    </label>
+    <input *ngIf="edit; else emailValue" type="text" name="email" formControlName="email">
+    <ng-template #emailValue>
+      <span class="detail-val">
+        {{ person.email }}
+      </span>
+    </ng-template>
+  </div>
+
+  <!-- DoB -->
+  <div class="detail">
+    <label for="dob" class="detail-name mat-body-2">
+      Date of Birth
+    </label>
+    <input *ngIf="edit; else dobValue" type="date" name="dob" formControlName="dob">
+    <ng-template #dobValue>
+      <span class="detail-val">
+        {{ person.dob }}
+      </span>
+    </ng-template>
+  </div>
+
+  <!-- Address -->
+  <div class="detail">
+    <label for="address" class="detail-name mat-body-2">
+      Address
+    </label>
+    <input *ngIf="edit; else addressValue" type="textarea" name="address" formControlName="address">
+    <ng-template #addressValue>
+      <span class="detail-val">
+        {{ person.address }}
+      </span>
+    </ng-template>
+  </div>
+
+  <!-- Address -->
+  <div class="detail">
+    <label for="gender" class="detail-name mat-body-2">
+      Gender
+    </label>
+    <select *ngIf="edit; else genderValue" name="gender" formControlName="gender">
+      <option value="male"> Male </option>
+      <option value="female"> Female </option>
+      <option value="none"> Prefer not to say </option>
+    </select>
+    <ng-template #genderValue>
+      <span class="detail-val">
+        {{ person.gender }}
+      </span>
+    </ng-template>
+  </div>
+
+  <div *ngIf="edit" style="position: absolute; right:2rem; bottom:0.5rem; padding-top: 2.5rem;">
     <button mat-raised-button color="primary" style="margin-right: 0.25rem;" type="submit"><mat-icon>save</mat-icon> Save</button>
     <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
   </div>
