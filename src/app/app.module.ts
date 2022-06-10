@@ -14,11 +14,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DetailPageComponent } from './detail-page/detail-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MatCardModule } from '@angular/material/card';
+import { PersonDetailFormComponent } from './person-detail-form/person-detail-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     DetailPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    PersonDetailFormComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule
   ],
   providers: [
     CdkColumnDef

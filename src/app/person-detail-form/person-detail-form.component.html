@@ -1,0 +1,15 @@
+<mat-card style="margin: 0.5rem 2rem;">
+  <div *ngFor="let colDict of columns" class="detail">
+    <ng-container *ngFor="let col of colDict | keyvalue">
+      <label for="col.key" class="detail-name mat-body-2">
+        {{ col.value }}
+      </label>
+      <input *ngIf="edit;else detailValue" type="text" id="col.key" [formControl]="col.key">
+      <ng-template #detailValue>
+        <span class="detail-val">
+          {{ person[col.key] }}
+        </span>
+      </ng-template>
+    </ng-container>
+  </div>
+</mat-card>

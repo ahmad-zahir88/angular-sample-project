@@ -5,25 +5,7 @@
   <span style="padding:0.5rem;">Details</span>
 </mat-toolbar>
 
-<mat-card style="margin: 0.5rem 2rem;">
-  <div class="detail">
-    <span class="detail-name mat-body-2">
-      Name
-    </span>
-    <span class="detail-val">
-      Ahmad Zahir Rabbani
-    </span>
-  </div>
-  <div class="detail">
-    <span class="detail-name mat-body-2">
-      Email
-    </span>
-    <span class="detail-val">
-      ahmadzahir88@gmail.com
-    </span>
-  </div>
-</mat-card>
-
+<person-detail-form [edit]="edit" [id]="id"></person-detail-form>
 <button 
  mat-fab 
  color="primary" 
