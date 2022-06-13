@@ -12,9 +12,13 @@ export class CreateUserPageComponent implements OnInit {
 
   ngOnInit() {
   }
+
   onSubmission(msg : string){
-    if (msg==='success'){
+    if (msg){
       this.router.navigate(['..']);
+    }
+    else{
+      alert("An error occured. Please try again later.");
     }
   }
 

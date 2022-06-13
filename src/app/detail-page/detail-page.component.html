@@ -17,4 +17,4 @@
   </div>
 </mat-toolbar>
 
-<user-detail-form [edit]="edit" [id]="id" (cancelEdit)="onCancel($event)"></user-detail-form>
+<user-detail-form [edit]="edit" [id]="id" (cancelEdit)="onCancel($event)" (submit)="onSubmission($event)"></user-detail-form>

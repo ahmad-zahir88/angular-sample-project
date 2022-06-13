@@ -12,6 +12,9 @@ export class HomePageComponent implements OnInit {
   constructor(private router: Router, private userDataService : UserDataService) { }
 
   ngOnInit() {
+    this.userDataService.getUsers().subscribe(
+      (res)=> {this.test_data = res;}
+    );    
   }
 
   displayedColumns = ['fullName','email','occupation']
@@ -20,7 +23,7 @@ export class HomePageComponent implements OnInit {
     this.router.navigate(['detail/'+id])
   }
 
-  test_data = this.userDataService.getUsers();
+  test_data : any;
 
   onCreate(){
     this.router.navigate(['create'])

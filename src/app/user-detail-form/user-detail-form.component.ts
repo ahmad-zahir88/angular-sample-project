@@ -15,65 +15,70 @@ export class UserDetailFormComponent implements OnInit {
 
   ngOnInit() {
     if(this.id){
-      this.user = this.userDataService.getUserById(this.id);
-      this.userDetailForm = new FormGroup({
-        fullName: new FormControl(this.user.fullName),
-        email: new FormControl(this.user.email),
-        dob: new FormControl(this.user.dob),
-        address: new FormControl(this.user.address),
-        gender: new FormControl(this.user.gender),
-        occupation: new FormControl(this.user.occupation),
-      });
+      this.userDataService.getUserById(this.id).subscribe(
+        (res)=>{
+          this.user = res[0];
+          this.userDetailForm.patchValue({
+            fullname: this.user.fullname,
+            email: this.user.email,
+            dob: this.user.dob,
+            address: this.user.address,
+            gender: this.user.gender,
+            occupation: this.user.occupation
+          })        
+        },
+        (err: Error)=>{
+          alert("An error occured. Please try again later.")
+        }
+      );
     }
-    else{
-      console.log("id dont exits")
-      this.userDetailForm = new FormGroup({
-        fullName: new FormControl(''),
-        email: new FormControl(''),
-        dob: new FormControl(''),
-        address: new FormControl(''),
-        gender: new FormControl(''),
-        occupation: new FormControl(''),
-      });
-    }
-  }
-  genderText : string;
-  @Input() edit : boolean = false;
+}
+
+  @Input() edit : boolean = true;
   @Output() cancelEdit = new EventEmitter<boolean>();
   @Input() id? : number;
-  user : User;
+  user : User = undefined;
 
   columns = [
-    {fullName : 'Name'},
+    {fullname : 'Name'},
     {email: 'Email'},
     {dob: 'Date of Birth'},
     {address: 'Address'},
     {gender: 'Gender'},
     {occupation: 'Occupation'}
-  ]
+  ];
 
-  userDetailForm : FormGroup;
+  userDetailForm : FormGroup = new FormGroup({
+    fullname: new FormControl(''),
+    email: new FormControl(''),
+    dob: new FormControl(''),
+    address: new FormControl(''),
+    gender: new FormControl(''),
+    occupation: new FormControl('')
+  });
 
   onCancel(){
     this.cancelEdit.emit(true);
   }
 
-  @Output() submitSuccess = new EventEmitter<string>();
+  @Output() submit = new EventEmitter<boolean>();
 
   onSubmit(){
-    let currId = undefined;
     if(this.user){
-      currId = this.user.id;
+      this.userDetailForm.addControl('id',new FormControl(this.user.id));
     }
-    this.user = {
-      id: currId,
-      ...this.userDetailForm.value,
-    }
-    console.log(this.user);
-    this.userDataService.setOrCreateUser(this.user);
-
-    // Check for success later
-    this.submitSuccess.emit('success');
+    
+    this.userDataService.setOrCreateUser(this.userDetailForm.value).subscribe(
+      (res)=>{
+        console.log(res);
+        // Check for success later
+        this.submit.emit(true);
+      },
+      (err : Error)=>{
+        this.submit.emit(false);
+        console.log(err);
+      }
+    );    
   }
   
 }

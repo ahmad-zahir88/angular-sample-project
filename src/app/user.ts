@@ -1,5 +1,5 @@
 export class User{
-    fullName : String
+    fullname : String
     email: String
     dob: Date
     address: String

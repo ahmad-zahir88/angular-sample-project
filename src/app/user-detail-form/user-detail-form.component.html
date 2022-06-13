@@ -2,15 +2,15 @@
   <form [formGroup]="userDetailForm">
   <!-- Full Name -->
   <div class="detail-edit-{{edit}}">
-    <label for="fullName" class="detail-name mat-body-2">
+    <label for="fullname" class="detail-name mat-body-2">
       Name
     </label>
-    <mat-form-field *ngIf="edit;else fullNameValue" style="width:80%;">
-      <input matInput name="fullName" formControlName="fullName">
+    <mat-form-field *ngIf="edit;else fullnameValue" style="width:80%;">
+      <input matInput name="fullname" formControlName="fullname">
     </mat-form-field>
-    <ng-template #fullNameValue>
-      <span class="detail-val">
-        {{ user.fullName }}
+    <ng-template #fullnameValue>
+      <span *ngIf="user" class="detail-val">
+        {{ user.fullname }}
       </span>
     </ng-template>
   </div>
@@ -24,7 +24,7 @@
       <input matInput name="email" formControlName="email">
     </mat-form-field>
     <ng-template #emailValue>
-      <span class="detail-val">
+      <span *ngIf="user" class="detail-val">
         {{ user.email }}
       </span>
     </ng-template>
@@ -41,7 +41,7 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <ng-template #dobValue>
-      <span class="detail-val">
+      <span *ngIf="user" class="detail-val">
         {{ user.dob | date }}
       </span>
     </ng-template>
@@ -56,7 +56,7 @@
       <textarea matInput name="address" formControlName="address"></textarea>
     </mat-form-field>
     <ng-template #addressValue>
-      <span class="detail-val">
+      <span *ngIf="user" class="detail-val">
         {{ user.address }}
       </span>
     </ng-template>
@@ -71,7 +71,7 @@
       <input matInput name="occupation" formControlName="occupation">
     </mat-form-field>
     <ng-template #occupationValue>
-      <span class="detail-val">
+      <span *ngIf="user" class="detail-val">
         {{ user.occupation }}
       </span>
     </ng-template>
@@ -90,7 +90,7 @@
       </mat-select>
     </mat-form-field>
     <ng-template #genderValue>
-      <span class="detail-val">
+      <span *ngIf="user" class="detail-val">
         {{ user.gender | gender }}
       </span>
     </ng-template>

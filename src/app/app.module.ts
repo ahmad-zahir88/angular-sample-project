@@ -23,6 +23,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule} from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { CreateUserPageComponent } from './create-user-page/create-user-page.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { CreateUserPageComponent } from './create-user-page/create-user-page.com
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
   providers: [
     CdkColumnDef,

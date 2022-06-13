@@ -24,10 +24,21 @@ export class DetailPageComponent implements OnInit {
   }
 
   onCancel(cancel: boolean){
+    console.log(cancel);
+    
     this.edit = !cancel;
   }
 
   onBackClick(){
     this.router.navigate(['..']);
+  }
+  
+  onSubmission(msg : any){        
+    if (msg){
+      this.edit = false;
+    }
+    else{
+      alert("An error occured. Please try again later.");
+    }
   }
 }

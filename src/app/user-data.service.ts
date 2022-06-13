@@ -1,52 +1,27 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User, Gender } from './user';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserDataService {
 
-  constructor() { }
-
-  // Dummy Data --> Replace later if database is ready
-  private TEST_DATA : User[] = [
-    {
-      fullName : 'Ahmad A',
-      email: 'ahmada@gmail.com', // Should check validity later
-      dob: new Date('2000-09-01'),
-      address: 'A021 B&G Hall, Acton 2601',
-      gender: Gender.MALE,
-      occupation: 'Student',
-      id: 0
-    },
-    {
-      fullName : 'Ahmad Zahir',
-      email: 'ahmadzahir88@gmail.com', // Should check validity later
-      dob: new Date('2000-09-01'),
-      address: 'A034 B&G Hall, Acton 2601',
-      gender: Gender.MALE,
-      occupation: 'Student',
-      id: 1
-    }
-  ]
-
-  getUsers() : User[] {
-    return this.TEST_DATA;
+  constructor(private http : HttpClient) { }
+  private SERVER_URL = 'http://localhost:80/php-api.php'
+  getUsers() : Observable<any> {
+    return this.http.get(this.SERVER_URL);
   }
 
-  getUserById(id : Number) : User {
-    return this.TEST_DATA.find(user => user.id === id);
+  getUserById(id : Number) : Observable<any> {
+    let queryParams = new HttpParams().set('id',id.toString());
+    return this.http.get(this.SERVER_URL,{params: queryParams});
   }
 
-  setOrCreateUser(user : User){
-    let existingUser = this.getUserById(user.id);
-    if (existingUser){
-      console.log("Existing user")
-      this.TEST_DATA[this.TEST_DATA.indexOf(existingUser)] = user;
-    }
-    else{
-      console.log("New user")
-      this.TEST_DATA.push(user);
-    }
+  setOrCreateUser(userValues : any): Observable<any>{
+    return this.http.post(this.SERVER_URL,userValues);
   }
 }
