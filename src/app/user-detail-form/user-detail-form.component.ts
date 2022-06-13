@@ -73,6 +73,10 @@ export class UserDetailFormComponent implements OnInit {
         console.log(res);
         // Check for success later
         this.submit.emit(true);
+        this.user = {
+          id : this.user.id,
+          ...this.userDetailForm.value
+        }
       },
       (err : Error)=>{
         this.submit.emit(false);
