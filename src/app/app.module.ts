@@ -24,6 +24,7 @@ import { MatNativeDateModule} from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { CreateUserPageComponent } from './create-user-page/create-user-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,7 @@ import { HttpClientModule } from '@angular/common/http';
     CdkColumnDef,
     MatDatepickerModule,
     MatNativeDateModule,
-    GenderPipe
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

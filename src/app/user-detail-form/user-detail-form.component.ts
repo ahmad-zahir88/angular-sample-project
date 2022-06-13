@@ -1,6 +1,6 @@
+import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { GenderPipe } from '../gender.pipe';
 import { User } from '../user';
 import { UserDataService } from '../user-data.service';
 
@@ -11,7 +11,7 @@ import { UserDataService } from '../user-data.service';
 })
 export class UserDetailFormComponent implements OnInit {
 
-  constructor(private userDataService : UserDataService, private genderPipe : GenderPipe) { }
+  constructor(private userDataService : UserDataService, private datePipe: DatePipe) { }
 
   ngOnInit() {
     if(this.id){
@@ -37,7 +37,7 @@ export class UserDetailFormComponent implements OnInit {
   @Input() edit : boolean = true;
   @Output() cancelEdit = new EventEmitter<boolean>();
   @Input() id? : number;
-  user : User = undefined;
+  user : User;
 
   columns = [
     {fullname : 'Name'},
@@ -67,16 +67,18 @@ export class UserDetailFormComponent implements OnInit {
     if(this.user){
       this.userDetailForm.addControl('id',new FormControl(this.user.id));
     }
-    
+    this.userDetailForm.patchValue(
+      {'dob' : this.datePipe.transform(this.userDetailForm.value.dob,"yyyy-MM-dd")}
+    );
     this.userDataService.setOrCreateUser(this.userDetailForm.value).subscribe(
       (res)=>{
-        console.log(res);
         // Check for success later
         this.submit.emit(true);
         this.user = {
-          id : this.user.id,
+          id : this.id,
           ...this.userDetailForm.value
         }
+        
       },
       (err : Error)=>{
         this.submit.emit(false);
