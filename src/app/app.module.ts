@@ -20,7 +20,7 @@ import { GenderPipe } from './gender.pipe';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule} from '@angular/material';
+import { MatNativeDateModule, MatSnackBarModule} from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { CreateUserPageComponent } from './create-user-page/create-user-page.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -50,7 +50,8 @@ import { DatePipe } from '@angular/common';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [
     CdkColumnDef,

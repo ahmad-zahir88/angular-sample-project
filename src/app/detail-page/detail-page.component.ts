@@ -33,12 +33,9 @@ export class DetailPageComponent implements OnInit {
     this.router.navigate(['..']);
   }
   
-  onSubmission(msg : any){        
+  onSubmission(msg : any){      
     if (msg){
       this.edit = false;
-    }
-    else{
-      alert("An error occured. Please try again later.");
     }
   }
 }

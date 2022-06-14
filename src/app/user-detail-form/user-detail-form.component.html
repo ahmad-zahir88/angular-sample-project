@@ -97,7 +97,7 @@
   </div>
 
   <div *ngIf="edit" style="position: absolute; right:2rem; bottom:0.5rem; padding-top: 2.5rem;">
-    <button mat-raised-button color="primary" (click)="onSubmit()" style="margin-right: 0.25rem;" type="submit"><mat-icon>save</mat-icon> Save</button>
+    <button mat-raised-button color="primary" (click)="onSubmit($event)" style="margin-right: 0.25rem;"><mat-icon>save</mat-icon> Save</button>
     <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
   </div>
   </form>
