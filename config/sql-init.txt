@@ -1,0 +1,24 @@
+CREATE DATABASE angular_sample_database;
+
+USE angular_sample_database;
+
+CREATE TABLE Users(
+    id INT NOT NULL AUTO_INCREMENT,
+    fullname VARCHAR(320) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    address VARCHAR(640) NOT NULL,
+    dob DATE NOT NULL,
+    gender INT NOT NULL,
+    occupation VARCHAR(120) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO Users 
+(fullname, email, address, dob, gender, occupation)
+VALUES
+('John Doe', 'john@doe.com', '123 John St\nCanberra 2612',0,'Frontend Developer');
+
+INSERT INTO Users 
+(fullname, email, address, dob, gender, occupation)
+VALUES
+('Jane Doe', 'jane@doe.com', '456 Jane St\nCanberra 2613',1,'Backend Developer');
