@@ -25,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { CreateUserPageComponent } from './create-user-page/create-user-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { DatePipe } from '@angular/common';
     MatNativeDateModule,
     MatSelectModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FlexLayoutModule
   ],
   providers: [
     CdkColumnDef,

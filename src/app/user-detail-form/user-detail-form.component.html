@@ -1,88 +1,88 @@
 <mat-card style="margin: 1rem 2rem;">
   <form [formGroup]="userDetailForm">
   <!-- Full Name -->
-  <div class="detail-edit-{{edit}}">
-    <label for="fullname" class="detail-name mat-body-2">
+  <div class="detail-edit-{{edit}}" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+    <label for="fullname" class="mat-body-2" ngStyle.gt-xs="width:20%;">
       Name
     </label>
-    <mat-form-field *ngIf="edit;else fullnameValue" style="width:80%;">
+    <mat-form-field *ngIf="edit;else fullnameValue" ngStyle.gt-xs="width:80%;" ngStyle.xs="width:100%;">
       <input matInput name="fullname" formControlName="fullname">
     </mat-form-field>
     <ng-template #fullnameValue>
-      <span *ngIf="user" class="detail-val">
+      <span *ngIf="user">
         {{ user.fullname }}
       </span>
     </ng-template>
   </div>
 
   <!-- Email -->
-  <div class="detail-edit-{{edit}}">
-    <label for="email" class="detail-name mat-body-2">
+  <div class="detail-edit-{{edit}}" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+    <label for="email" class="mat-body-2" ngStyle.gt-xs="width:20%;">
       Email
     </label>
-    <mat-form-field *ngIf="edit;else emailValue" style="width:80%;">
+    <mat-form-field *ngIf="edit;else emailValue" ngStyle.gt-xs="width:80%;" ngStyle.xs="width:100%;">
       <input matInput name="email" formControlName="email">
     </mat-form-field>
     <ng-template #emailValue>
-      <span *ngIf="user" class="detail-val">
+      <span *ngIf="user">
         {{ user.email }}
       </span>
     </ng-template>
   </div>
 
   <!-- DoB -->
-  <div class="detail-edit-{{edit}}">
-    <label for="dob" class="detail-name mat-body-2">
+  <div class="detail-edit-{{edit}}" fxLayout.xs="column" fxFlexFill>
+    <label for="dob" class="mat-body-2" ngStyle.gt-xs="width:20%;">
       Date of Birth
     </label>
     <mat-form-field *ngIf="edit; else dobValue">
-      <input matInput [matDatepicker]="picker" formControlName="dob">
+      <input matInput [matDatepicker]="picker" formControlName="dob" ngStyle.gt-xs="width:80%;" ngStyle.xs="width:100%;">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <ng-template #dobValue>
-      <span *ngIf="user" class="detail-val">
+      <span *ngIf="user">
         {{ user.dob | date }}
       </span>
     </ng-template>
   </div>
 
   <!-- Address -->
-  <div class="detail-edit-{{edit}}">
-    <label for="address" class="detail-name mat-body-2">
+  <div class="detail-edit-{{edit}}" fxLayout.xs="column" fxFlexFill>
+    <label for="address" class="mat-body-2" ngStyle.gt-xs="width:20%;">
       Address
     </label>
-    <mat-form-field *ngIf="edit; else addressValue" style="width:80%;">
+    <mat-form-field *ngIf="edit; else addressValue" ngStyle.gt-xs="width:80%;" ngStyle.xs="width:100%;">
       <textarea matInput name="address" formControlName="address"></textarea>
     </mat-form-field>
     <ng-template #addressValue>
-      <span *ngIf="user" class="detail-val">
+      <span *ngIf="user">
         {{ user.address }}
       </span>
     </ng-template>
   </div>
 
   <!-- Occupation -->
-  <div class="detail-edit-{{edit}}">
-    <label for="occupation" class="detail-name mat-body-2">
+  <div class="detail-edit-{{edit}}" fxLayout.xs="column" fxFlexFill>
+    <label for="occupation" class="mat-body-2" ngStyle.gt-xs="width:20%;">
       Occupation
     </label>
-    <mat-form-field *ngIf="edit; else occupationValue" style="width:80%;">
+    <mat-form-field *ngIf="edit; else occupationValue" ngStyle.gt-xs="width:80%;" ngStyle.xs="width:100%;">
       <input matInput name="occupation" formControlName="occupation">
     </mat-form-field>
     <ng-template #occupationValue>
-      <span *ngIf="user" class="detail-val">
+      <span *ngIf="user">
         {{ user.occupation }}
       </span>
     </ng-template>
   </div>
 
   <!-- Gender -->
-  <div class="detail-edit-{{edit}}">
-    <label for="gender" class="detail-name mat-body-2">
+  <div class="detail-edit-{{edit}}" fxLayout.xs="column" fxFlexFill>
+    <label for="gender" class="mat-body-2" ngStyle.gt-xs="width:20%;">
       Gender
     </label>
-    <mat-form-field *ngIf="edit; else genderValue">
+    <mat-form-field *ngIf="edit; else genderValue" ngStyle.gt-xs="width:80%;" ngStyle.xs="width:100%;">
       <mat-select name="gender" value="genderText" formControlName="gender">
         <mat-option value="0"> Male </mat-option>
         <mat-option value="1"> Female </mat-option>
@@ -90,14 +90,14 @@
       </mat-select>
     </mat-form-field>
     <ng-template #genderValue>
-      <span *ngIf="user" class="detail-val">
+      <span *ngIf="user">
         {{ user.gender | gender }}
       </span>
     </ng-template>
   </div>
 
-  <div *ngIf="edit" style="position: absolute; right:2rem; bottom:0.5rem; padding-top: 2.5rem;">
-    <button mat-raised-button color="primary" (click)="onSubmit($event)" style="margin-right: 0.25rem;"><mat-icon>save</mat-icon> Save</button>
+  <div *ngIf="edit" fxLayout.xs="column" fxLayout.gt-xs="row" fxLayoutAlign="end" fxFlexFill style="padding-top: 1rem;">
+    <button mat-raised-button color="primary" (click)="onSubmit($event)" ngStyle.gt-xs="margin-right: 0.5rem;" ngStyle.xs="margin-bottom: 0.5rem;"><mat-icon>save</mat-icon> Save</button>
     <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
   </div>
   </form>

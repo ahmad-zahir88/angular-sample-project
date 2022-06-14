@@ -2,3 +2,19 @@
     background-color: #eee;
     cursor: pointer;
 }
+
+.mat-cell{
+    padding: 0.75rem 0.5rem;
+}
+
+.mat-column-email{
+    max-width: 35vw;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mat-column-occupation{
+    max-width: 25vw;
+    overflow-wrap: break-word;
+}
