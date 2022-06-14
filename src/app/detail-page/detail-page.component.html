@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="onBackClick()">
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
-    <span style="padding:0.5rem;">Details</span>
+    <span style="padding:0.5rem;"><ng-template [ngIf]="edit">Edit </ng-template>Details</span>
   </div>
   <div class="right">
     <button 
