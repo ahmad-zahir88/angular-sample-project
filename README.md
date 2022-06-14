@@ -5,7 +5,7 @@ The project is a simple website built on Angular on the frontend side with PHP o
 ## Requirements to run the app
 1. PHP (tested on: v8.1.7) [Download](https://www.php.net/downloads.php)
 2. Nginx (tested on: v1.22.0) [Download](http://nginx.org/en/download.html)
-3. Node.js (tested on: v16.14.2) [Download](https://nodejs.org/en/download/)
+3. Node.js (tested on: v16.15.1) [Download](https://nodejs.org/en/download/)
 4. MySQL (tested on: v8.0.29) [Download](https://www.mysql.com/downloads/)
 
 ## Initialisation
