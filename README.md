@@ -63,7 +63,7 @@ VALUES
 1. Run these three command and let them run simultaneously. These will act as the backend and database server.
     - `mysqld` 
     - `php-cgi -b 127.0.0.1:9123`
-    - `nginx` 
+    - `start nginx` 
 
 2. Run the Angular application by typing `ng serve -o` into the terminal.
 
