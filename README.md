@@ -38,6 +38,7 @@ CREATE TABLE Users(
     dob DATE NOT NULL,
     gender INT NOT NULL,
     occupation VARCHAR(120) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
 ```
@@ -47,12 +48,12 @@ CREATE TABLE Users(
 INSERT INTO Users 
 (fullname, email, address, dob, gender, occupation)
 VALUES
-('John Doe', 'john@doe.com', '123 John St\nCanberra 2612',0,'Frontend Developer');
+('John Doe', 'john@doe.com', '123 John St\nCanberra 2612','2000-01-31',0,'Frontend Developer');
 
 INSERT INTO Users 
 (fullname, email, address, dob, gender, occupation)
 VALUES
-('Jane Doe', 'jane@doe.com', '456 Jane St\nCanberra 2613',1,'Backend Developer');
+('Jane Doe', 'jane@doe.com', '456 Jane St\nCanberra 2613','2001-02-02',1,'Backend Developer');
 ```
 ### Frontend
 1. Open the terminal and change its directory to this folder
@@ -70,4 +71,14 @@ VALUES
 3. Once the application is running, a new window will be opened in your default browser and you will be redirected to the homepage.
 
 ## Screenshots of the Application
-[]('docs/homepage_ss.png')
+### Home Page
+![Homepage](docs/homepage_ss.png)
+
+### Details page
+![Details](docs/details_ss.png)
+
+### Edit details
+![Edit](docs/edit_ss.png)
+
+### Create new user page
+![Create](docs/create_ss.png)

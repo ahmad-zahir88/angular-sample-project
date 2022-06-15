@@ -19,6 +19,7 @@ export class UserDetailFormComponent implements OnInit {
       this.userDataService.getUserById(this.id).subscribe(
         (res)=>{
           this.user = res[0];
+          
           this.userDetailForm.patchValue({
             fullname: this.user.fullname,
             email: this.user.email,
@@ -33,8 +34,9 @@ export class UserDetailFormComponent implements OnInit {
         }
       );
     }
+    this.curr_time = Date.now();
 }
-
+  curr_time : Number;
   @Input() edit : boolean = true;
   @Output() cancelEdit = new EventEmitter<boolean>();
   @Input() id? : number;
@@ -112,5 +114,4 @@ export class UserDetailFormComponent implements OnInit {
       }
     );    
   }
-  
 }

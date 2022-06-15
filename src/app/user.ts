@@ -6,6 +6,7 @@ export class User{
     gender: Gender
     occupation: String
     id?: Number
+    created_at?: Date
 }
 
 export enum Gender{

@@ -1,5 +1,25 @@
 <mat-card style="margin: 1rem 2rem;">
   <form [formGroup]="userDetailForm">
+  
+  <!-- Created at (Read-only) -->
+  <div class="detail-edit-{{edit}}" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+    <label for="created_at" class="mat-body-2" ngStyle.gt-xs="width:20%;">
+      Created at
+    </label>
+    <mat-form-field *ngIf="edit;else createdAtValue" ngStyle.gt-xs="width:80%;" ngStyle.xs="width:100%;">
+      <input *ngIf="user;else createdNew" matInput name="created_at" value="{{user.created_at | date:'medium'}}" readonly disabled>
+      <ng-template #createdNew>
+        <input matInput name="created_at" value="{{curr_time | date:'medium'}}" readonly disabled>
+      </ng-template>
+    </mat-form-field>
+    <ng-template #createdAtValue>
+      <span *ngIf="user">
+        {{ user.created_at | date:'medium' }}
+      </span>
+    </ng-template>
+  </div>
+
+
   <!-- Full Name -->
   <div class="detail-edit-{{edit}}" fxLayout="row" fxLayout.xs="column" fxFlexFill>
     <label for="fullname" class="mat-body-2" ngStyle.gt-xs="width:20%;">

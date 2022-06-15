@@ -32,6 +32,7 @@ if($con){
                 $response[$i]['address'] = $row['address'];
                 $response[$i]['gender'] = $row['gender'];
                 $response[$i]['occupation'] = $row['occupation'];
+                $response[$i]['created_at'] = $row['created_at'];
                 $i++;
             }
             if (empty($response)){
