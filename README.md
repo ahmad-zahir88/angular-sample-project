@@ -60,11 +60,14 @@ VALUES
 3. NPM (Node Package Manager) will then install all the required dependecies stated in `package.json`
 
 ## Running the application
-1. Run these three command and let them run simultaneously. These will act as the backend and database server.
+1. Run these commands on different terminals and let them run simultaneously.
     - `mysqld` 
     - `php-cgi -b 127.0.0.1:9123`
-    - `start nginx` 
+    - `nginx` (`cd` first to Nginx installation folder)
 
-2. Run the Angular application by typing `ng serve -o` into the terminal.
+2. Run the Angular application by typing `ng serve -o` into the terminal. Make sure the terminal is pointed to this folder (where README.md resides).
 
 3. Once the application is running, a new window will be opened in your default browser and you will be redirected to the homepage.
+
+## Screenshots of the Application
+[]('docs/homepage_ss.png')
