@@ -82,3 +82,6 @@ VALUES
 
 ### Create new user page
 ![Create](docs/create_ss.png)
+
+## Online Repository
+Link to the GitHub repository of this project : [https://github.com/ahmad-zahir88/angular-sample-project](https://github.com/ahmad-zahir88/angular-sample-project)
